@@ -1,0 +1,61 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Вводим известные значения гипотенузы и катета
+        Console.WriteLine("Введите длину гипотенузы треугольника:");
+        double c = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Введите длину катета треугольника:");
+        double a = Convert.ToDouble(Console.ReadLine());
+
+        // Находим сторону второго катета
+        double b = Math.Sqrt(c * c - a * a);
+
+        // Находим периметр треугольника
+        double perimeter = a + b + c;
+
+        // Находим площадь треугольника
+        double area = 0.5 * a * b;
+
+        // Находим сторону квадрата, площадь которого равна площади треугольника
+        double squareSide = Math.Sqrt(area);
+
+        // Выводим результаты
+        Console.WriteLine($"Периметр треугольника: {perimeter}");
+        Console.WriteLine($"Площадь треугольника: {area}");
+        Console.WriteLine($"Сторона квадрата: {squareSide}");
+
+        // Вводим длины сторон треугольника
+        Console.WriteLine("Введите длину стороны A:");
+        double a1 = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Введите длину стороны B:");
+        double b1 = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Введите длину стороны C:");
+        double c1 = Convert.ToDouble(Console.ReadLine());
+
+        // Проверяем условие существования треугольника
+        if (a1 + b1 > c1 && a1 + c1 > b1 && b1 + c1 > a1)
+        {
+            Console.WriteLine("Треугольник существует.");
+
+            // Проверяем, является ли треугольник прямоугольным
+            if (a1 * a1 + b1 * b1 == c1 * c1 || a1 * a1 + c1 * c1 == b1 * b1 || b1 * b1 + c1 * c1 == a1 * a1)
+            {
+                Console.WriteLine("Треугольник является прямоугольным.");
+            }
+            else
+            {
+                Console.WriteLine("Треугольник не является прямоугольным.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Треугольник не существует.");
+        }
+    }
+}
