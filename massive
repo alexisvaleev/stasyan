@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Вводим массив целых чисел
+        Console.WriteLine("Введите элементы массива через пробел:");
+        int[] array = Console.ReadLine().Split().Select(int.Parse).ToArray();
+
+        // Создаем словарь для подсчета количества встреч каждого числа
+        Dictionary<int, int> occurrences = new Dictionary<int, int>();
+
+        // Проходимся по массиву и заполняем словарь
+        foreach (int num in array)
+        {
+            if (occurrences.ContainsKey(num))
+            {
+                occurrences[num]++;
+            }
+            else
+            {
+                occurrences[num] = 1;
+            }
+        }
+
+        // Находим наиболее часто встречающееся число и его количество встреч
+        int mostFrequentNumber = occurrences.OrderByDescending(x => x.Value)
+                                            .ThenBy(x => x.Key)
+                                            .First().Key;
+        int maxOccurrences = occurrences[mostFrequentNumber];
+
+        // Выводим результат
+        Console.WriteLine($"Наиболее часто встречающееся число: {mostFrequentNumber}");
+        Console.WriteLine($"Количество встреч: {maxOccurrences}");
+    }
+}
