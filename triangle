@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Вводим известные значения гипотенузы и катета
+        
         Console.WriteLine("Введите длину гипотенузы треугольника:");
         double c = Convert.ToDouble(Console.ReadLine());
 
@@ -43,7 +43,6 @@ class Program
         {
             Console.WriteLine("Треугольник существует.");
 
-            // Проверяем, является ли треугольник прямоугольным
             if (a1 * a1 + b1 * b1 == c1 * c1 || a1 * a1 + c1 * c1 == b1 * b1 || b1 * b1 + c1 * c1 == a1 * a1)
             {
                 Console.WriteLine("Треугольник является прямоугольным.");
